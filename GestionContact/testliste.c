@@ -13,8 +13,8 @@ Contact createContact(char lastName[], char firstName[], char phone[]) {
 
 void displayContact(Contact c) {
     printf("le nom: %s\n", c.lastName);
-    printf("le prénom: %s\n", c.firstName);
-    printf("le téléphone: %s\n", c.phone);
+    printf("le prenom: %s\n", c.firstName);
+    printf("le telephone: %s\n", c.phone);
 }
 
 void modifyPhone(Contact *c, char newPhone[]) {
@@ -67,20 +67,6 @@ int compareContact(Contact c1, Contact c2) {
     return 1;
 }
 
-Node* findPreviousNode(LinkedList *linkedList, Contact c) {
-    if (linkedList == NULL) {
-        exit(0);
-    }
-
-    Node *current = linkedList->head;
-    while (current->next != NULL && compareContact(current->next->data, c) == 0) {
-        current = current->next;
-    }
-    if (current->next == NULL) {
-        printf("La valeur recherchée n'est pas dans la liste.\n");
-    }
-    return current;
-}
 
 void deleteNode(LinkedList *linkedList, Contact c) {
     if (linkedList == NULL) {
@@ -134,7 +120,7 @@ void searchByFirstName(LinkedList *linkedList, char firstName[]) {
         current = current->next;
     }
     if (found == 0) {
-        printf("Contact avec ce prénom introuvable\n");
+        printf("Contact avec ce prenom introuvable\n");
     }
 }
 
@@ -153,6 +139,6 @@ void searchByFullName(LinkedList *linkedList, char lastName[], char firstName[])
         current = current->next;
     }
     if (found == 0) {
-        printf("Contact avec ce nom et ce prénom introuvable\n");
+        printf("Contact avec ce nom et ce prenom introuvable\n");
     }
 }
